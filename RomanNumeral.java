@@ -1,11 +1,16 @@
+//importing Scanner class
 import java.util.Scanner;
+
+//creating a class RomanNumerals
 public class RomanNumeral
 {
+   //Creating main method
    public static void main(String[] args)
    {
    
-      //Creatig Scanner object
+      //Creating Scanner object
       Scanner in = new Scanner(System.in);
+      
       //displaying header
       System.out.println("Do You Know the Roman Numerals?");
       System.out.println("===============================\n");
@@ -19,15 +24,22 @@ public class RomanNumeral
       System.out.println("+------------------------------------+\n");
       
       
-      //asking for input from user
+      //asking for user choice number
       System.out.print("Enter a number (1 - 3999) : ");
       String number = in.nextLine();
       
+      //asking user to enter roman numeral of their choice number 
       System.out.print("\nEnter the Roman numeral of " + number +": ");
       String userGuess = in.nextLine();
       
+      //making a copy of user input for displaying output purposes
       String numberCopy= number;
+      
+      //initilizing an empty string to store the roman numeral value
       String romanNumerals="";
+      
+      /*determining the length of user input and arranging all as string
+      of length '4' by adding space characters.*/
       
       if (number.length()==3)
       {
@@ -43,7 +55,9 @@ public class RomanNumeral
          number="   "+number;
       }
    
-      //thousands
+   
+      //THOUSANDS
+      
       if (number.substring(0,1).equals("1"))
       {
          romanNumerals = romanNumerals +"M";
@@ -61,7 +75,7 @@ public class RomanNumeral
            
       
       
-      //hundred
+      //HUNDREDS
       if (number.substring(1,2).equals("1"))
       {
          romanNumerals = romanNumerals +"C";
@@ -113,7 +127,7 @@ public class RomanNumeral
    
    
       
-      //tens
+      //TENS
       if (number.substring(2,3).equals("1"))
       {
          romanNumerals = romanNumerals +"X";
@@ -136,22 +150,22 @@ public class RomanNumeral
          
       else if (number.substring(2,3).equals("5"))
       {
-         romanNumerals = romanNumerals + "V";
+         romanNumerals = romanNumerals + "L";
       }
          
       else if (number.substring(2,3).equals("6"))
       {
-         romanNumerals = romanNumerals +"VX";
+         romanNumerals = romanNumerals +"LX";
       } 
          
       else if (number.substring(2,3).equals("7"))
       {
-         romanNumerals = romanNumerals + "VXX";
+         romanNumerals = romanNumerals + "LXX";
       }
          
       else if (number.substring(2,3).equals("8"))
       {
-         romanNumerals = romanNumerals + "VXXX";
+         romanNumerals = romanNumerals + "LXXX";
       }
          
       else if (number.substring(2,3).equals("9"))
@@ -167,7 +181,7 @@ public class RomanNumeral
    
       
       
-      //ones     
+      //ONES     
       if (number.substring(3,4).equals("1"))
       {
          romanNumerals = romanNumerals +"I";
@@ -214,28 +228,27 @@ public class RomanNumeral
       {
          romanNumerals = romanNumerals;
       }
-   
-         
-   
-   
       
-      //checking
+      //checking if the user guess matches with the correct roman numerals.
       if (romanNumerals.compareTo(userGuess) == 0)
       {
+         //displaying incorect message 
          System.out.println("\n* * * Correct * * *");
          
       }
       else
       {
+         //displaying correct message   
          System.out.println("\n* * * Inorrect * * *");
          
          //second chance
          System.out.print("\nWould you like one more try? (y/n): ");
          String decision = in.nextLine();
          
-         //y
+         
          if (decision.substring(0,1).equals("y"))
          {
+            
             System.out.print("\nEnter the Roman numeral of " + number +": ");
             userGuess = in.nextLine();
             
@@ -246,7 +259,7 @@ public class RomanNumeral
                
             }
             
-            //n
+            
             else
             {
                System.out.println("\n* * * Inorrect * * *");
@@ -254,7 +267,7 @@ public class RomanNumeral
          }
          
       }
-      //final result
+      //displaying final result statement
       System.out.println("\n" + numberCopy +" is a Roman numeral " + romanNumerals +".");
    }
 }
